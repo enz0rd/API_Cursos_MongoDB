@@ -54,6 +54,17 @@ class CursoController {
             }
         })
     }
+
+    static cursoPorProfessor = (req,res) => {
+        const prof = req.query.professor
+        cursos.find({'professor': prof}, {}, (err, cursos) => {
+            if(!err) {
+                res.status(200).send(cursos)
+            } else {
+                res.status(500).send({message: err.message})
+            }
+        })
+    }
 }
 
 export default CursoController

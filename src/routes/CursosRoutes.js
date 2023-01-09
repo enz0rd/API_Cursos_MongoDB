@@ -7,6 +7,7 @@ const router = Express.Router();
 
 router
     .get("/cursos", CursoController.listarCursos)
+    .get("/cursos/busca", CursoController.cursoPorProfessor)
     .get("/cursos/:id", CursoController.cursoID)
     .post("/cursos", CursoController.addCurso)
     .put("/cursos/:id", CursoController.attCurso)
@@ -19,6 +20,7 @@ router
     .delete("/professores/:id", ProfessorController.delProfessor)
 
     .get("/alunos", AlunoController.listarAlunos)
+    .get("/alunos/busca", AlunoController.AlunoPorCurso)
     .get("/alunos/:id", AlunoController.AlunoID)
     .post("/alunos", AlunoController.addAluno)
     .put("/alunos/:id", AlunoController.attAluno)

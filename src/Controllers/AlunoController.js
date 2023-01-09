@@ -58,6 +58,17 @@ class AlunoController {
             }
         })
     }
+
+    static AlunoPorCurso = (req,res) => {
+        const curso = req.query.curso
+        alunos.find({'curso': curso}, {}, (err, alunos) => {
+            if(!err) {
+                res.status(200).send(alunos)
+            } else {
+                res.status(500).send({message: err.message})
+            }
+        })
+    }
 }
 
 export default AlunoController
